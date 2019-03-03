@@ -116,3 +116,10 @@ firebase functions:config:get
 cd <project_root>
 firebase deploy --only functions
 ```
+
+# TODO
+
+- [ ] dockerize firebase deploy
+- [ ] Migrate presenter script to cloudfunction
+- [ ] Migarte nextEventGenerate script to cloudfunction
+

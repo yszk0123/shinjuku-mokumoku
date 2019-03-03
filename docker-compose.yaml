@@ -7,6 +7,27 @@ services:
     ports:
       - 9000:9000
 
+  functions:
+    build:
+      context: .
+    environment:
+      SLACK_API_TOKEN: ${SLACK_API_TOKEN}
+      FIREBASE_CONFIG: /root/.config/gcloud/application_default_credentials.json
+    volumes:
+      - ./functions:/app
+      - $HOME/.config/gcloud:/root/.config/gcloud:ro
+      - node_modules:/app/node_modules
+
+  firebase: &firebase
+    build:
+      context: .
+    environment:
+      FIREBASE_CONFIG: /root/.config/gcloud/application_default_credentials.json
+    volumes:
+      - ./:/app
+      - $HOME/.config/gcloud:/root/.config/gcloud:ro
+      - node_modules:/app/node_modules
+
   node:
     build:
       context: .

@@ -11,6 +11,8 @@ RUN apk add --no-cache --virtual build-dependencies curl tar \
   && chmod +x /bin/entrykit \
   && entrykit --symlink
 
+RUN npm install -g firebase-tools
+
 WORKDIR /app
 VOLUME /app/node_modules
 
